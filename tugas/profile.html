@@ -51,6 +51,15 @@
                   width: 100%;
             }
 
+            .address-info{
+                  display: flex;
+                  flex-direction: row;
+            }
+
+            .mr-auto{
+                  margin-right: auto;
+            }
+
       </style>
 </head>
 <body>
@@ -126,13 +135,31 @@
                                           </div>
                                           <div class="password-profile profile-info">
                                                 <h2>Change Password</h2>
-                                                <div class="d-flex flex-direction-row">
+                                                <div class="d-flex flex-row">
                                                       <input type="password" style="width: 70%; margin-right: 5%">
                                                       <button class="w-25">Edit Password</button>
                                                 </div>
                                           </div>
                                           <div class="address-profile profile-info">
                                                 <h2>Delivery Address</h2>
+                                                <div class="d-flex address-container flex-column" style="border: solid 1px white; border-radius: 10px;">
+                                                      <div class="address-info">
+                                                            <h3 class="mr-auto">Home</h3>
+                                                            <button>Default</button>
+                                                      </div>
+                                                      <div class="address-info">
+                                                            <h4>Postal Code</h4>
+                                                            <input type="number">
+                                                            <h4>Province</h4>
+                                                            <input type="text">
+                                                            <h4>City</h4>
+                                                            <input type="text">
+                                                      </div>
+                                                      <div class="address-info">
+                                                            <input type="text" class="w-auto"/>
+                                                            <button>Edit</button>
+                                                      </div>
+                                                </div>
                                           </div>
                                           <div class="payment-profile profile-info">
                                                 <h2>Payment Method</h2>
