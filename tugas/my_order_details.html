@@ -272,9 +272,8 @@
                         </div>
                   </section>
 
-                  <!-- gatau ngapa ini kalo width 100 ada horizontal scrollbar -->
-                  <section style="width: 99%;">
-                        <div class="row text-white">
+                  <section>
+                        <div class="row text-white" style="width: 100%;">
                               <div class="col-auto side" style="margin-left: clamp(40px, 8%, 200px);">
                                     <p class="orderbuttonCur inline-flex">On Process <span class="dot"></span></p> 
                                     <p class="orderbuttons">On Delivery</p>
@@ -284,7 +283,7 @@
                               <div class="col">
                                     <div class="container backbutton">
                                           <a href="my_order.html" style="display: flex; align-items: center;">
-                                                <img src="Images/backarrow.svg" alt="" width="48px" style="margin-right: 5px;">
+                                                <img src="./Images/backarrow.svg" alt="" width="48px" style="margin-right: 5px;">
                                                 <h5 style="margin: 0;">Back to My Order</h5>
                                           </a>
                                     </div>
@@ -303,20 +302,19 @@
                                                       </div>
                                                       <div class="row">
                                                             <div class="col-auto" style="margin: 0 10px;">
-                                                                  <img src="Images/checkerboard.png" class="product-img" alt="image">
+                                                                  <img src="./Images/checkerboard.png" class="product-img" alt="image">
                                                             </div>
                                                             <div class="col-auto">
                                                                   <p class="ordertitle leftalign">Wen Sen Tan Cosplay</p>
                                                                   <p class="leftalign">Size : XL</p>
                                                                   <div class="gradient" style="height: 2px; margin: 15px 0;"></div>
-                                                                  <p class="leftalign">2 x $150</p>
+                                                                  <p class="leftalign">2 x Rp. 99.000</p>
                                                             </div>
                                                             <div class="col">
-                                                                  <!-- empty space -->
                                                             </div>
                                                             <div class="col" style="display: flex; flex-direction: column; justify-content: flex-end;">
                                                                   <p class="rightalign">Total</p>
-                                                                  <p class="ordertitle fw-semibold rightalign" id="price">$300</p>
+                                                                  <p class="ordertitle fw-semibold rightalign" id="price">Rp. 198.000</p>
                                                             </div>
                                                       </div>
                                                 </div>
@@ -329,15 +327,15 @@
                                                 <div style="height: 4px; margin: 25px 0; background-color: #2A2A2A;"></div>
                                                 <div class="left-align">
                                                       <p class="ordertitle left-align" style="display: inline-block; padding-right: 50px;">Product Quality</p>
-                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating1" value="1">
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating1" value="1" onclick="rate(1)">
                                                       <label for="rating1" class=""></label>
-                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating2" value="2">
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating2" value="2" onclick="rate(2)">
                                                       <label for="rating2" class=""></label>
-                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating3" value="3">
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating3" value="3" onclick="rate(3)">
                                                       <label for="rating3" class=""></label>
-                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating4" value="4">
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating4" value="4" onclick="rate(4)">
                                                       <label for="rating4" class=""></label>
-                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating5" value="5">
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating5" value="5" onclick="rate(5)">
                                                       <label for="rating5" class=""></label>
                                                 </div>
                                           </div>
@@ -346,7 +344,7 @@
                                                 <div class="container comment-list">
                                                       <div class="row" style="margin: 25px 0; width: 100%;">
                                                             <div class="col-auto">
-                                                                  <img src="Images/user.svg" width="80px" alt="pfp">
+                                                                  <img src="./Images/user.svg" width="80px" alt="pfp">
                                                             </div>
                                                             <div class="col">
                                                                   <div class="row" style="margin-right: 20px;">
@@ -403,55 +401,41 @@
                   });
             });
 
-            function increment() {
-                  var quantityInput = document.getElementById("quantity");
-                  var quantityValue = quantityInput.value.trim();
-                  
-                  if (isNaN(quantityValue)){
-                        quantityInput.value = 1;
-                  }
-                  else {
-                        // quantityInput.value = parseInt(quantityInput.value) + 1;
-                        var incrementedValue = parseInt(quantityValue) + 1;
-                        
-                        if(isNaN(incrementedValue)){
-                              quantityInput.value = 1;
+            function rate(score) {
+                  document.getElementById('rating5').classList.remove('bi-star-fill')
+                  document.getElementById('rating4').classList.remove('bi-star-fill')
+                  document.getElementById('rating3').classList.remove('bi-star-fill')
+                  document.getElementById('rating2').classList.remove('bi-star-fill')
+                  document.getElementById('rating1').classList.remove('bi-star-fill')
+                  document.getElementById('rating5').classList.add('bi-star')
+                  document.getElementById('rating4').classList.add('bi-star')
+                  document.getElementById('rating3').classList.add('bi-star')
+                  document.getElementById('rating2').classList.add('bi-star')
+                  document.getElementById('rating1').classList.add('bi-star')
+
+                  switch(score) {
+                        case 5:{
+                              document.getElementById('rating5').classList.remove('bi-star')
+                              document.getElementById('rating5').classList.add('bi-star-fill')
                         }
-                        else{
-                              quantityInput.value = incrementedValue;
-                        }                        
-                  }
-
-                  document.getElementById("price").textContent = "$" + (quantityInput.value * 120);
-            }
-            function decrement() {
-                  var quantityInput = document.getElementById("quantity");
-                  var quantityValue = quantityInput.value.trim();
-                  
-                  if (isNaN(quantityValue)){
-                        quantityInput.value = 1;
-                  }
-                  else {
-                        var incrementedValue = parseInt(quantityValue) - 1;
-                        
-                        if(isNaN(incrementedValue) || incrementedValue <= 1){
-                              quantityInput.value = 1;
+                        case 4:{
+                              document.getElementById('rating4').classList.remove('bi-star')
+                              document.getElementById('rating4').classList.add('bi-star-fill')
                         }
-                        else{
-                              quantityInput.value = incrementedValue;
-                        }                        
+                        case 3:{
+                              document.getElementById('rating3').classList.remove('bi-star')
+                              document.getElementById('rating3').classList.add('bi-star-fill')
+                        }
+                        case 2:{
+                              document.getElementById('rating2').classList.remove('bi-star')
+                              document.getElementById('rating2').classList.add('bi-star-fill')
+                        }
+                        case 1:{
+                              document.getElementById('rating1').classList.remove('bi-star')
+                              document.getElementById('rating1').classList.add('bi-star-fill')
+                              break;
+                        }
                   }
-
-                  if (quantityValue > 1) {
-                        quantityInput.value = quantityValue - 1;
-                  }
-
-                  document.getElementById("price").textContent = "$" + (quantityInput.value * 120);
             }
-
-            var qtyInput = document.getElementById("quantity");
-            qtyInput.addEventListener("input", function() {
-                  document.getElementById("price").textContent = "$" + (qtyInput.value * 120);
-            });
   </script>
 </html>

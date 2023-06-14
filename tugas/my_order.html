@@ -249,7 +249,7 @@
                   </section>
 
                   <section>
-                        <div class="row text-white">
+                        <div class="row text-white" style="width: 100%;">
                               <div class="col-auto side" style="margin-left: clamp(40px, 8%, 200px);">
                                     <p class="orderbuttonCur inline-flex">On Process <span class="dot"></span></p> 
                                     <p class="orderbuttons">On Delivery</p>
@@ -270,20 +270,20 @@
                                                       </div>
                                                       <div class="row">
                                                             <div class="col-auto" style="margin: 0 10px;">
-                                                                  <img src="Images/checkerboard.png" class="product-img" alt="image">
+                                                                  <img src="./Images/checkerboard.png" class="product-img" alt="image">
                                                             </div>
                                                             <div class="col-auto">
                                                                   <p class="ordertitle leftalign">Wen Sen Tan Cosplay</p>
                                                                   <p class="leftalign">Size : XL</p>
                                                                   <div class="gradient" style="height: 2px; margin: 15px 0;"></div>
-                                                                  <p class="leftalign">2 x $150</p>
+                                                                  <p class="leftalign">2 x Rp. 99.000</p>
                                                             </div>
                                                             <div class="col">
                                                                   
                                                             </div>
                                                             <div class="col">
                                                                   <p class="rightalign">Total</p>
-                                                                  <p class="ordertitle fw-semibold rightalign" id="price">$300</p>
+                                                                  <p class="ordertitle fw-semibold rightalign" id="price">Rp. 198.000</p>
                                                                   <button class="custom-button gradient">Rate</button>
                                                             </div>
                                                       </div>
@@ -302,20 +302,20 @@
                                                       </div>
                                                       <div class="row">
                                                             <div class="col-auto" style="margin: 0 10px;">
-                                                                  <img src="Images/checkerboard.png" class="product-img" alt="image">
+                                                                  <img src="./Images/checkerboard.png" class="product-img" alt="image">
                                                             </div>
                                                             <div class="col-auto">
                                                                   <p class="ordertitle leftalign">Wen Sen Tan Cosplay</p>
                                                                   <p class="leftalign">Size : XL</p>
                                                                   <div class="gradient" style="height: 2px; margin: 15px 0;"></div>
-                                                                  <p class="leftalign">2 x $150</p>
+                                                                  <p class="leftalign">2 x Rp. 99.000</p>
                                                             </div>
                                                             <div class="col">
                                                                   
                                                             </div>
                                                             <div class="col">
                                                                   <p class="rightalign">Total</p>
-                                                                  <p class="ordertitle fw-semibold rightalign" id="price">$300</p>
+                                                                  <p class="ordertitle fw-semibold rightalign" id="price">Rp. 198.000</p>
                                                                   <button class="custom-button gradient">Rate</button>
                                                             </div>
                                                       </div>
@@ -334,20 +334,20 @@
                                                       </div>
                                                       <div class="row">
                                                             <div class="col-auto" style="margin: 0 10px;">
-                                                                  <img src="Images/checkerboard.png" class="product-img" alt="image">
+                                                                  <img src="./Images/checkerboard.png" class="product-img" alt="image">
                                                             </div>
                                                             <div class="col-auto">
                                                                   <p class="ordertitle leftalign">Wen Sen Tan Cosplay</p>
                                                                   <p class="leftalign">Size : XL</p>
                                                                   <div class="gradient" style="height: 2px; margin: 15px 0;"></div>
-                                                                  <p class="leftalign">2 x $150</p>
+                                                                  <p class="leftalign">2 x Rp. 99.000</p>
                                                             </div>
                                                             <div class="col">
                                                                   
                                                             </div>
                                                             <div class="col">
                                                                   <p class="rightalign">Total</p>
-                                                                  <p class="ordertitle fw-semibold rightalign" id="price">$300</p>
+                                                                  <p class="ordertitle fw-semibold rightalign" id="price">Rp. 198.000</p>
                                                                   <button class="custom-button gradient">Rate</button>
                                                             </div>
                                                       </div>
@@ -398,57 +398,6 @@
                         var $this = $(this);
                         $this.toggleClass('droppedDown');
                   });
-            });
-
-            function increment() {
-                  var quantityInput = document.getElementById("quantity");
-                  var quantityValue = quantityInput.value.trim();
-                  
-                  if (isNaN(quantityValue)){
-                        quantityInput.value = 1;
-                  }
-                  else {
-                        // quantityInput.value = parseInt(quantityInput.value) + 1;
-                        var incrementedValue = parseInt(quantityValue) + 1;
-                        
-                        if(isNaN(incrementedValue)){
-                              quantityInput.value = 1;
-                        }
-                        else{
-                              quantityInput.value = incrementedValue;
-                        }                        
-                  }
-
-                  document.getElementById("price").textContent = "$" + (quantityInput.value * 120);
-            }
-            function decrement() {
-                  var quantityInput = document.getElementById("quantity");
-                  var quantityValue = quantityInput.value.trim();
-                  
-                  if (isNaN(quantityValue)){
-                        quantityInput.value = 1;
-                  }
-                  else {
-                        var incrementedValue = parseInt(quantityValue) - 1;
-                        
-                        if(isNaN(incrementedValue) || incrementedValue <= 1){
-                              quantityInput.value = 1;
-                        }
-                        else{
-                              quantityInput.value = incrementedValue;
-                        }                        
-                  }
-
-                  if (quantityValue > 1) {
-                        quantityInput.value = quantityValue - 1;
-                  }
-
-                  document.getElementById("price").textContent = "$" + (quantityInput.value * 120);
-            }
-
-            var qtyInput = document.getElementById("quantity");
-            qtyInput.addEventListener("input", function() {
-                  document.getElementById("price").textContent = "$" + (qtyInput.value * 120);
             });
   </script>
 </html>
