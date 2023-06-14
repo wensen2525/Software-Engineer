@@ -153,6 +153,15 @@
             margin: 0;
             padding: 0;
       }
+      .comment-list {
+            background-color: #2A2A2A;
+            border-radius: 10px;
+            height: 400px;
+            display: flex;
+            align-items: baseline;
+            width: 80%;
+            max-width: 1400px;
+      }
       .leftalign {
             text-align: left;
       }
@@ -186,6 +195,9 @@
             align-items: center;
             width: 102%;
       }
+      .left-align{
+            text-align: left;
+      }
       
       .orderbuttons {
             padding: 10px 0;
@@ -216,15 +228,27 @@
             display: inline-block;
             margin: 0 0 0 10px;
       }
-      /* .side {
-            position: fixed;
-            top: 0;
-            width: 600px;
-            z-index: 9999;
-      } */
-      .order-number {
+      .container {
             width: 80%;
             max-width: 1400px;
+      }
+      .backbutton {
+            padding: 0 0 20px 0;
+      }
+      .star {
+            background-color: transparent;
+            color: white;
+      }
+      .input-text {
+            background-color: transparent;
+            border: transparent;
+            color: white;
+      }
+      .input-text::placeholder{
+            font-style: italic;
+      }
+      textarea:focus{
+            outline: none;
       }
 
       #total {
@@ -248,7 +272,8 @@
                         </div>
                   </section>
 
-                  <section>
+                  <!-- gatau ngapa ini kalo width 100 ada horizontal scrollbar -->
+                  <section style="width: 99%;">
                         <div class="row text-white">
                               <div class="col-auto side" style="margin-left: clamp(40px, 8%, 200px);">
                                     <p class="orderbuttonCur inline-flex">On Process <span class="dot"></span></p> 
@@ -257,39 +282,15 @@
                                     <p class="orderbuttons">Order History</p>
                               </div>
                               <div class="col">
-                                    <div class=" container order-number">
-                                          <p class="ordertitle" style="text-align: left;">Order Number : #CX2931029381</p>
+                                    <div class="container backbutton">
+                                          <a href="my_order.html" style="display: flex; align-items: center;">
+                                                <img src="Images/backarrow.svg" alt="" width="48px" style="margin-right: 5px;">
+                                                <h5 style="margin: 0;">Back to My Order</h5>
+                                          </a>
                                     </div>
-                                    <div class="midcards">
-                                          <div class="container mid-list">
-                                                <div class="row product-cards">
-                                                      <div class="orderheader">
-                                                            <p style="margin-right: 20px;">January 1, 6969</p>
-                                                            <p class="onprocess" style="margin-right: 20px; padding: 3px 10px;">On Process</p>
-                                                            <p>CX2931029381</p>
-                                                      </div>
-                                                      <div class="row">
-                                                            <div class="col-auto" style="margin: 0 10px;">
-                                                                  <img src="Images/checkerboard.png" class="product-img" alt="image">
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                  <p class="ordertitle leftalign">Wen Sen Tan Cosplay</p>
-                                                                  <p class="leftalign">Size : XL</p>
-                                                                  <div class="gradient" style="height: 2px; margin: 15px 0;"></div>
-                                                                  <p class="leftalign">2 x $150</p>
-                                                            </div>
-                                                            <div class="col">
-                                                                  
-                                                            </div>
-                                                            <div class="col">
-                                                                  <p class="rightalign">Total</p>
-                                                                  <p class="ordertitle fw-semibold rightalign" id="price">$300</p>
-                                                                  <button class="custom-button gradient">Rate</button>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                                
-                                          </div>
+
+                                    <div class="container">
+                                          <p class="ordertitle left-align">Order Number : #CX2931029381</p>
                                     </div>
 
                                     <div class="midcards">
@@ -311,56 +312,58 @@
                                                                   <p class="leftalign">2 x $150</p>
                                                             </div>
                                                             <div class="col">
-                                                                  
+                                                                  <!-- empty space -->
                                                             </div>
-                                                            <div class="col">
+                                                            <div class="col" style="display: flex; flex-direction: column; justify-content: flex-end;">
                                                                   <p class="rightalign">Total</p>
                                                                   <p class="ordertitle fw-semibold rightalign" id="price">$300</p>
-                                                                  <button class="custom-button gradient">Rate</button>
                                                             </div>
                                                       </div>
                                                 </div>
-                                                
                                           </div>
                                     </div>
+                                    
+                                    <form action="{{ route('ratings.store') }}" method="POST" enctype="multipart/form-data"></form>
+                                          <div class="container">
+                                                <p class="ordertitle left-align">Give Product Rating</p>
+                                                <div style="height: 4px; margin: 25px 0; background-color: #2A2A2A;"></div>
+                                                <div class="left-align">
+                                                      <p class="ordertitle left-align" style="display: inline-block; padding-right: 50px;">Product Quality</p>
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating1" value="1">
+                                                      <label for="rating1" class=""></label>
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating2" value="2">
+                                                      <label for="rating2" class=""></label>
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating3" value="3">
+                                                      <label for="rating3" class=""></label>
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating4" value="4">
+                                                      <label for="rating4" class=""></label>
+                                                      <input type="radio" class="form-control bi bi-star d-inline p-0 border-0 star" name="ratingstar" id="rating5" value="5">
+                                                      <label for="rating5" class=""></label>
+                                                </div>
+                                          </div>
 
-                                    <div class="midcards">
-                                          <div class="container mid-list">
-                                                <div class="row product-cards">
-                                                      <div class="orderheader">
-                                                            <p style="margin-right: 20px;">January 1, 6969</p>
-                                                            <p class="onprocess" style="margin-right: 20px; padding: 3px 10px;">On Process</p>
-                                                            <p>CX2931029381</p>
-                                                      </div>
-                                                      <div class="row">
-                                                            <div class="col-auto" style="margin: 0 10px;">
-                                                                  <img src="Images/checkerboard.png" class="product-img" alt="image">
-                                                            </div>
+                                          <div class="midcards">
+                                                <div class="container comment-list">
+                                                      <div class="row" style="margin: 25px 0; width: 100%;">
                                                             <div class="col-auto">
-                                                                  <p class="ordertitle leftalign">Wen Sen Tan Cosplay</p>
-                                                                  <p class="leftalign">Size : XL</p>
-                                                                  <div class="gradient" style="height: 2px; margin: 15px 0;"></div>
-                                                                  <p class="leftalign">2 x $150</p>
+                                                                  <img src="Images/user.svg" width="80px" alt="pfp">
                                                             </div>
                                                             <div class="col">
-                                                                  
-                                                            </div>
-                                                            <div class="col">
-                                                                  <p class="rightalign">Total</p>
-                                                                  <p class="ordertitle fw-semibold rightalign" id="price">$300</p>
-                                                                  <button class="custom-button gradient">Rate</button>
+                                                                  <div class="row" style="margin-right: 20px;">
+                                                                        <h5 class="left-align">Stefanus Jonathan</h5>
+                                                                        <div style="height: 2px; margin: 15px 12px; background-color: white; width: 97%;"></div>
+                                                                        <textarea name="" id="" cols="30" rows="10" placeholder="Write your review here..." class="input-text" name="reviewtext" required></textarea>
+                                                                        <div class="text-right">
+                                                                              <button class="custom-button gradient margin15" type="submit">Submit</button>
+                                                                        </div>
+                                                                  </div>
                                                             </div>
                                                       </div>
                                                 </div>
-                                                
                                           </div>
-                                    </div>
+                                    </form>
                               </div>
-
-                              
                         </div>
-
-                        
                   </section>
 
             </main>
